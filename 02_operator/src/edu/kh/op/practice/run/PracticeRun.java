@@ -1,6 +1,7 @@
 package edu.kh.op.practice.run;
 
 import edu.kh.op.practice.OperatorPractice;
+import edu.kh.op.practice.OperatorPractice3;
 
 public class PracticeRun { // 기능 실행용 클래스
 
@@ -9,7 +10,11 @@ public class PracticeRun { // 기능 실행용 클래스
 		
 		OperatorPractice op = new OperatorPractice();
 		
-		op.practice1();
+		//op.practice1();
+		
+		OperatorPractice3 op3 = new OperatorPractice3();
+		
+		op3.practice2();
 
 	}
 
