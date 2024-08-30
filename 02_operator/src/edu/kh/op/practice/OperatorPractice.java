@@ -62,8 +62,10 @@ public class OperatorPractice {
 		System.out.print("번호 : ");
 		int number = sc.nextInt();
 		
+		sc.nextLine(); // 입력버퍼 비우는 일 (개행문자 비우기) 
+		
 		System.out.print("성별(남학생/여학생) : ");
-		String gender = sc.next();
+		String gender = sc.nextLine();
 		
 		System.out.print("성적 : ");
 		double score = sc.nextDouble();
