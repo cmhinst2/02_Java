@@ -18,7 +18,8 @@ public class ArrayRun { // 실행용 클래스
 		ArrayExample2 arrayEx2 = new ArrayExample2();
 		
 		//arrayEx2.shallowCopy();
-		arrayEx2.deepCopy();
+		//arrayEx2.deepCopy();
+		arrayEx2.createLottoNumber();
 		
 		
 		
