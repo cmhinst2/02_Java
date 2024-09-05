@@ -30,6 +30,7 @@ public class People { // 국민(사람) 클래스
 	private String address;
 	private String phone; // "010-1234-1234"
 	private int age;
+	private int amount;
 	//public double bitcoin; // 공통점이 아니므로 제거
 	
 	
@@ -115,11 +116,14 @@ public class People { // 국민(사람) 클래스
 
 
 	public void setAge(int age) {
-		this.age = age;
+		if (age >= 0) {
+	        this.age = age;
+	    } else {
+	        throw new IllegalArgumentException("음수는 안된다..");
+	    }
 	}
-	
-	
-	
+
+
 	
 	
 	

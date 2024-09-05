@@ -31,8 +31,8 @@ public class AbstractionService {
 		System.out.println("p1의 address : " + p1.address);
 		System.out.println("p1의 phone : " + p1.phone);
 		System.out.println("p1의 age : " + p1.age);
-		
 		*/
+		
 		
 		p1.setName("홍길동");
 		p1.setGender('남');
@@ -40,6 +40,7 @@ public class AbstractionService {
 		p1.setAddress("서울시 중구 어쩌구");
 		p1.setPhone("010-1234-1234");
 		p1.setAge(20);
+		
 		
 		System.out.println(p1.getName());
 		System.out.println(p1.getGender());
@@ -52,12 +53,14 @@ public class AbstractionService {
 		// People 클래스 이용하여 mihyun 
 		People mihyun = new People();
 		
+		//mihyun.age = -100;
+		
 		mihyun.setName("조미현");
 		mihyun.setGender('여');
 		mihyun.setpNo("123456-1234567");
 		mihyun.setPhone("010-1234-1234");
 		mihyun.setAddress("서울시 중구 어쩌구");
-		mihyun.setAge(5);
+		mihyun.setAge(100);
 		
 		System.out.println(mihyun.getName());
 		System.out.println(mihyun.getGender());
@@ -67,7 +70,8 @@ public class AbstractionService {
 		System.out.println(mihyun.getAge());
 		
 		
-		
+		// 다른 라이브러리 + 기술
+		// getter/setter 
 		
 		
 		
