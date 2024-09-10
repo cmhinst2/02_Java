@@ -51,8 +51,21 @@ public class MemberService {
 			switch(menuNum) {
 			case 1 : System.out.println( signUp() );  break;
 			case 2 : System.out.println( login() ); break;
-			case 3 : /*조회*/ break;
-			case 4 : /*수정*/ break;
+			case 3 : System.out.println( selectMember() ); break;
+			case 4 : 
+				int result = updateMember(); // -1, 0, 1
+				
+				if(result == -1) {
+					System.out.println("로그인 후 이용바람");
+				} else if(result == 0) {
+					System.out.println("회원 정보 수정 실패(비밀번호 불일치)");
+				} else {
+					// result == 1
+					System.out.println("회원 정보가 수정되었습니다! :) ");
+				}
+			
+			break;
+			
 			case 5 : searchRegion(); break;
 			case 0 : System.out.println("프로그램 종료..."); break;
 			default : System.out.println("잘못 입력하셨습니다. 다시 입력하세요!");
@@ -232,43 +245,78 @@ public class MemberService {
 	
 	
 	// 회원 정보 조회 메서드
-	//public String selectMember() {
+	public String selectMember() {
 		
-		// 1) 로그인 여부 확인
+		System.out.println("\n======회원 정보 조회=======");
+		
+		// 1) 로그인 여부 확인 
+		// -> 필드 loginMember가 참조하는 객체가 있는지 확인
+		if(loginMember == null) {
+			return "로그인 후 이용바람";
+		}
+		
 		// 2) 로그인이 되어있는 경우
 		//    현재 로그인한 회원의 정보를 출력할 문자열을 만들어 반환
 		//    단, 비밀번호 제외 (이름, 아이디, 나이, 지역)
 		
+		String str = "이름 : " + loginMember.getMemberName();
+		str += "\n아이디 : " + loginMember.getMemberId();
+		str += "\n나이 : " + loginMember.getMemberAge();
+		str += "\n지역 : " + loginMember.getRegion();
+		
+		return str;
 		// 이름 : 홍길동
 		// 아이디 : user01
 		// 나이 : 20
 		// 지역 : 서울
 		
-	//}
+	}
 	
 	// 회원 정보 수정 메서드
-	//public int updateMember() {
+	public int updateMember() {
+		
+		System.out.println("\n======회원 정보 수정=======");
 		
 		// 1) 로그인 여부 판별
 		// -> 로그인이 되어있지 않으면 -1 반환
-		
+		if(loginMember == null) {
+			return -1;
+		}
 		
 		// 2) 수정할 회원 정보 입력 받기 (이름, 나이, 지역)
+		System.out.print("수정할 이름 입력 : ");
+		String inputName = sc.next();
+		
+		System.out.print("수정할 나이 입력 : ");
+		int inputAge = sc.nextInt();
+		
+		System.out.print("수정할 지역 입력 : ");
+		String inputRegion = sc.next();
 		
 		
 		// 3) 비밀번호를 입력받아서
 		//   로그인한 회원의 비밀번호와 일치하는지 확인
+		System.out.print("비밀번호 입력 : ");
+		String inputPw = sc.next();
 		
 		// 4) 비밀번호가 같을 경우 
 		//	로그인한 회원의 이름, 나이, 지역 정보를 입력 받은 값으로 변경 후
 		//  1 반환
+		if( inputPw.equals(loginMember.getMemberPw()) ) {
+			loginMember.setMemberName(inputName);
+			loginMember.setMemberAge(inputAge);
+			loginMember.setRegion(inputRegion);
+			
+			return 1;
+			
+		} else {
+			// 5) 비밀번호가 다른 경우 0 반환
+			return 0;
+		}
 		
-		// 5) 비밀번호가 다른 경우 0 반환
+	
 		
-		
-		
-		
-	//}
+	}
 	
 	
 	
