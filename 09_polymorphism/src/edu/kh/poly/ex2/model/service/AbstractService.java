@@ -53,6 +53,19 @@ public class AbstractService {
 		Animal a1 = new Person(); // 다형성 중 업캐스팅
 		Animal a2 = new Fish(); // 다형성 중 업캐스팅
 		
+		a1.ex();
+		a1.breath();
+		a1.move();
+		a1.eat();
+		
+		a2.ex();
+		a2.breath();
+		a2.move();
+		a2.eat();
+		
+		
+		System.out.println("=========여기==========");
+		
 		
 		Animal[] arr = new Animal[2];
 		// Animal 참조변수 배열 선언 및 할당

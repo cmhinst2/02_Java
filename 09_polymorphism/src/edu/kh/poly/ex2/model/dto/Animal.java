@@ -59,14 +59,18 @@ public abstract class Animal {
 	// 		자식 본인에게 맞는 정의를 하도록 오버라이딩 강제화 시킴
 	//	--> 추상메서드(abstract method)로 작성
 	
+	public void ex() {
+		System.out.println("얘는 여기저기 다씀");
+	}
+	
 	// 먹다
 	public abstract void eat(); // 추상메서드
 	
 	// 숨쉬다
-	public abstract void breath(); 
+	public abstract void breath(); // 추상메서드
 	
 	// 움직이다
-	public abstract void move();
+	public abstract void move(); // 추상메서드
 	
 	
 	
