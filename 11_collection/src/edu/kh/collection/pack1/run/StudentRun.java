@@ -12,7 +12,7 @@ public class StudentRun {
 		
 		StudentService service = new StudentService();
 		//service.ex();
-		service.displayMenu();
+		//service.displayMenu();
 		
 //		List<Integer> numberList = new ArrayList<Integer>();
 //		
@@ -27,8 +27,8 @@ public class StudentRun {
 //		
 //		System.out.println(numberList); [1,2,3,4,5]
 		
-		
-		
+		//service.comparatorTest();
+		service.comparingTest();
 		
 		
 

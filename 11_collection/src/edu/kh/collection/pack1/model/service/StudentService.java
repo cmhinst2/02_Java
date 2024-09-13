@@ -42,7 +42,7 @@ public class StudentService {
 
 	public StudentService() { // 기본생성자
 
-		studentList.add(new Student("홍길동", 25, "서울시 중구", 'M', 90));
+		studentList.add(new Student("홍길동", 23, "서울시 중구", 'M', 100));
 		studentList.add(new Student("고영희", 23, "경기도 안산시", 'F', 100));
 		studentList.add(new Student("강아지", 30, "서울시 강남구", 'M', 80));
 		studentList.add(new Student("오미나", 27, "충북 청주시", 'F', 90));
@@ -130,9 +130,11 @@ public class StudentService {
 					searchName2();
 					break;
 				case 7:
-					sortByAge(); break;
+					sortByAge();
+					break;
 				case 8:
-					sortByName(); break;
+					sortByName();
+					break;
 				case 0:
 					System.out.println("프로그램 종료..");
 					break;
@@ -394,7 +396,7 @@ public class StudentService {
 		for (Student std : studentList) {
 			// 순서 유의!
 			// boolean String.contains(문자열) : String에 문자열이 포함되어있으면 true / 없으면 false
-			if ( std.getName().contains(input) ) { 
+			if (std.getName().contains(input)) {
 				System.out.println(std); // std.toString();
 
 				flag = false;
@@ -407,67 +409,75 @@ public class StudentService {
 		}
 
 	}
-	
-	
-	
+
 	/**
 	 * 나이에 따라 오름차순 정렬
 	 */
 	public void sortByAge() {
-		
+
 		// Student에 Comparable 인터페이스를 상속받아 오버라이딩한
 		// compareTo() 에 정의한대로 정렬됨(오름차순, 내림차순)
-		Collections.sort(studentList);
-		
+		// Collections.sort(studentList);
+
 		// 정렬된 결과 출력
-		for(Student std : studentList) {
+		for (Student std : studentList) {
 			System.out.println(std);
 		}
 	}
-	
-	
+
 	/**
 	 * 이름에 따라 정렬하는 Comparator 객체 생성
 	 */
 	public void sortByName() {
-		
+
 		Comparator<Student> nameComparator = Comparator.comparing(Student::getName); // 오름차순
-		//Comparator<Student> nameComparator = Comparator.comparing(Student::getName).reversed(); // 내림차순
-		// camparing() 는 기본적으로 오름차순 
+		// Comparator<Student> nameComparator =
+		// Comparator.comparing(Student::getName).reversed(); // 내림차순
+		// camparing() 는 기본적으로 오름차순
 		// -> 내림차순 원하면 reversed(); 사용
-		
-		// Comparator 인터페이스의 static 메서드인 
+
+		// Comparator 인터페이스의 static 메서드인
 		// comparing() 을 사용하여 Comparator 객체를 생성
 		// -> comparing() 는 주어진 키를 기반으로 객체르 비교함.
-		// Student::getName   -> 메서드 레퍼런스(Method Reference)
+		// Student::getName -> 메서드 레퍼런스(Method Reference)
 		// Student 클래스의 getName() 메서드를 가리키는 것.
 		// -> 이 메서드를 비교의 키로 사용하여 각 Student 객체를 비교하고 정렬함.
 		// --> Comparator.comparing(Student::getName) 은 Student 객체의 이름(name)을
-		//    기준으로 학생객체를 비교하는 Comparator 객체를 생성.
-		
+		// 기준으로 학생객체를 비교하는 Comparator 객체를 생성.
+
 		// 이름에 따라 정렬
 		Collections.sort(studentList, nameComparator);
-		
-		for(Student std : studentList) {
+
+		for (Student std : studentList) {
 			System.out.println(std);
 		}
-		
+
 	}
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
+
+	// Student에 Comparator 인터페이스 상속받아 compare() 이용법
+	public void comparatorTest() {
+		Collections.sort(studentList, new Student());
+
+		// 정렬된 결과 출력
+		for (Student std : studentList) {
+			System.out.println(std);
+		}
+	}
+
+	// comparing() 이용한 여러 정렬기준 작성법
+	public void comparingTest() {
+		Comparator<Student> comparators = Comparator.comparing(Student::getAge) // 나이로 먼저 비교
+				.thenComparing(Student::getScore) // 나이가 같으면 점수로 비교
+				.thenComparing(Student::getName); // 점수가 같으면 이름으로 비교
+
+		// 정렬 수행
+		Collections.sort(studentList, comparators);
+
+		// 정렬된 결과 출력
+		for (Student student : studentList) {
+			System.out.println(student);
+		}
+
+	}
 
 }
