@@ -2,6 +2,7 @@ package edu.kh.collection.pack1.run;
 
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.LinkedList;
 import java.util.List;
 
 import edu.kh.collection.pack1.model.service.StudentService;
@@ -25,10 +26,10 @@ public class StudentRun {
 //		// 숫자 리스트를 정렬 (Comparable이 이미 구현되어 있음)
 //		Collections.sort(numberList);
 //		
-//		System.out.println(numberList); [1,2,3,4,5]
+//		System.out.println(numberList); // [1,2,3,4,5]
 		
 		//service.comparatorTest();
-		service.comparingTest();
+		//service.comparingTest();
 		
 		
 
